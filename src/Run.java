@@ -12,6 +12,7 @@ public class Run {
                     case "-" -> System.out.println(calculator.sub(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
                     case "*" -> System.out.println(calculator.mult(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
                     case "/" -> System.out.println(calculator.div(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
+                    case "%" -> System.out.println(calculator.mod(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
                 }
 
             } catch (Exception e){
