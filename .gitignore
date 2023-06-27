@@ -4,6 +4,7 @@ out/
 !**/src/test/**/out/
 /Calculator.iml
 /.idea
+/out
 
 ### Eclipse ###
 .apt_generated

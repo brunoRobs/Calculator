@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Run {
@@ -6,13 +7,22 @@ public class Run {
             try {
                 Calculator calculator = new Calculator();
                 Scanner scanner = new Scanner(System.in);
-                String[] operation = scanner.nextLine().split(" ");
-                switch (operation[1]) {
-                    case "+" -> System.out.println(calculator.sum(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
-                    case "-" -> System.out.println(calculator.sub(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
-                    case "*" -> System.out.println(calculator.mult(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
-                    case "/" -> System.out.println(calculator.div(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
-                    case "%" -> System.out.println(calculator.mod(Double.parseDouble(operation[0]), Double.parseDouble(operation[2])));
+                String text = scanner.nextLine().trim();
+                if(text.contains("+")) {
+                    String[] operation = scanner.nextLine().replace("+", "_").split("_");
+                    System.out.println(calculator.sum(operation));
+                } else if(text.contains("-")) {
+                    String[] operation = scanner.nextLine().split("-");
+                    System.out.println(calculator.sub(operation));
+                } else if(text.contains("*")) {
+                    String[] operation = scanner.nextLine().replace("*", "_").split("_");
+                    System.out.println(calculator.mult(operation));
+                } else if(text.contains("/")) {
+                    String[] operation = scanner.nextLine().split("/");
+                    System.out.println(calculator.div(operation));
+                } else {
+                    String[] operation = scanner.nextLine().split("%");
+                    System.out.println(calculator.mod(operation[0], operation[2]));
                 }
 
             } catch (Exception e){
